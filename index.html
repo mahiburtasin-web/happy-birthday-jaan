@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Jaan ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; background:linear-gradient(135deg,#fff1f5,#fbe4ec,#fff8f5);
+  color:#4b2732; overflow-x:hidden;
+}
+.card{
+  width:min(92%,720px); margin:30px auto; padding:34px 25px; border-radius:28px;
+  background:rgba(255,255,255,.82); box-shadow:0 18px 60px rgba(110,45,70,.18);
+  text-align:center; backdrop-filter:blur(10px);
+}
+.heart{font-size:52px; animation:pulse 1.6s infinite}
+h1{font-size:clamp(30px,7vw,54px); margin:8px 0 12px}
+h2{font-size:28px}
+p{font-size:17px; line-height:1.8}
+button{
+  border:0; border-radius:999px; padding:14px 25px; background:#b94d72; color:white;
+  font-size:16px; cursor:pointer; box-shadow:0 8px 20px #b94d7240;
+}
+input{
+  width:100%; max-width:260px; padding:14px 18px; border:1px solid #e4b6c5;
+  border-radius:14px; text-align:center; font-size:18px; outline:none; margin:12px 0;
+}
+.hidden{display:none}
+.letter{text-align:left; margin-top:25px}
+.divider{height:1px;background:#efd2dc;margin:24px 0}
+.date{font-size:14px;letter-spacing:2px;color:#9d6277}
+.float{position:fixed; bottom:-30px; animation:float 8s linear infinite; opacity:.55}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@keyframes float{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="lock">
+    <div class="heart">💗</div>
+    <div class="date">14 • 10 • 2026</div>
+    <h1>A little surprise for you...</h1>
+    <p>This little letter is only for my Jaan. 💌</p>
+    <p>Enter your special date to open it.</p>
+    <input id="code" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="08.07.22">
+    <br><button onclick="openLetter()">Open My Letter 💕</button>
+    <p id="error" class="hidden" style="color:#b94d72">Almost… try the special date again. ❤️</p>
+  </div>
+
+  <div id="letter" class="hidden">
+    <div class="heart">🎂❤️</div>
+    <div class="date">14 OCTOBER 2026</div>
+    <h1>Happy 19th Birthday, Jaan</h1>
+    <p><em>For the sweetest girl in my life.</em></p>
+
+    <div class="divider"></div>
+    <div class="letter">
+      <p><strong>Happy Birthday, Jaan.</strong> ❤️</p>
+
+      <p>Just like that, you’ve turned <strong>19—Masha'Allah!</strong>
+      I’ve known you since you were 15, and seeing you grow into the person you are today makes me so happy.</p>
+
+      <p>Happy birthday, my sweet girl; may this day return to your life again and again, bringing you endless happiness, peace, and blessings. 🤍</p>
+
+      <p>And Uncle, thank you too—it is because of that special moment of yours that I have your daughter in my life today.
+      Aunty, thank you as well for carrying her in your womb for nine months and bringing such a beautiful person into this world.</p>
+
+      <p><strong>Many, many thanks to both of you—Mom and Dad. ☺️</strong></p>
+
+      <div class="divider"></div>
+
+      <p>Jaan, thank you too for coming into my life and making me feel special—for loving and caring for me,
+      and for building such a wonderful and unexpected bond between us.</p>
+
+      <p>I am truly lucky to have found two things in one person—a good friend and a life partner like you.
+      Thank you so much, Jaan. ❤️</p>
+
+      <p>(Our children will also be very lucky to have such a sweet, lively, and charming mother—hehe.) 🥹</p>
+
+      <p>Always keep a smile on your face; don't let yourself get down.
+      I am always by your side, no matter the situation.</p>
+
+      <p>Insha'Allah, Jaan, everything will work out; put your trust in Allah.
+      Allah will pave the best path for us to spend our lives together, get married, and have children.</p>
+
+      <p><strong>Insha'Allah, pray for this; Allah will surely grant it very soon. Ameen, Summa Ameen. 🤲🏻❤️</strong></p>
+
+      <div class="divider"></div>
+
+      <p style="text-align:center;font-size:21px"><strong>Happy 19th Birthday, My Jaan. 🎀</strong></p>
+      <p style="text-align:center">Keep smiling. Keep shining. ❤️</p>
+      <p style="text-align:center"><em>With lots of love,<br>Always yours. 🤍</em></p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  const value=document.getElementById('code').value.trim();
+  if(value==="08.07.22" || value==="080722"){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('letter').classList.remove('hidden');
+    for(let i=0;i<18;i++){
+      const x=document.createElement('div'); x.className='float';
+      x.textContent=['♡','♥','🌸','✨'][i%4];
+      x.style.left=Math.random()*100+'vw';
+      x.style.animationDelay=Math.random()*5+'s';
+      x.style.fontSize=(18+Math.random()*18)+'px';
+      document.body.appendChild(x);
+    }
+  }else document.getElementById('error').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
